@@ -3,7 +3,7 @@ const express = require("express")
 require('dotenv').config()
 const app = express()
 const cors = require("cors")
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 8888
 
 // Page Home
 app.get("/", (req, res) => {
@@ -12,7 +12,7 @@ app.get("/", (req, res) => {
 
 // ZingMp3Router
 const ZingMp3Router = require("./src/routes/ZingRouter")
-app.use("/api", cors({ origin: '*' }), ZingMp3Router)
+app.use("/api", cors({ origin: process.env.URL_CLIENT }), ZingMp3Router)
 
 // Page Error
 app.get("*", (req, res) => {
