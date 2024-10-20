@@ -10,9 +10,11 @@ app.get("/", (req, res) => {
     res.send('SERVER ON')
 })
 
-// ZingMp3Router
 const ZingMp3Router = require("./src/routes/ZingRouter")
 app.use("/api", cors({ origin: process.env.URL_CLIENT }), ZingMp3Router)
+
+const ZingMp3Router1 = require("./src/routes/ZingRouter")
+app.use("/api", cors({ origin: process.env.URL_CLIENT1 }), ZingMp3Router1)
 
 // Page Error
 app.get("*", (req, res) => {
